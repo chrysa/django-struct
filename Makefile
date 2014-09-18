@@ -17,13 +17,18 @@ help:
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'module' 'module *nom du/des module/modules*'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'remove' 'remove *nom du/des module/modules*'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'migrate' 'migrate'
-	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'syncdb' 'syncdb'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'validate' 'validate'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'static' 'static'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'translate' 'translate'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'test' 'test'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'install' 'install'
+	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'uninstall' 'uninstall'
+	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'reinstall' 'reinstall'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'launchserv' 'launchserv'
+	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'configure' 'configure *nom de l'application*
+
+doc:
+	python manage.py makedoc
 
 module: 
 	printf '$(BLUE)création du/des module(s) $(CYAN)$(filter-out $@,$(MAKECMDGOALS)$(WHITE)\n'
@@ -40,10 +45,6 @@ migrate:
 	python manage.py makemigrations
 	python manage.py migrate
 
-syncdb:
-	printf '$(BLUE)syncronisation de la base de données$(WHITE)\n'
-	python manage.py syncdb
-
 validate:
 	printf '$(BLUE)validation de la base de données$(WHITE)\n' 
 	python manage.py validate
@@ -56,7 +57,7 @@ static:
 
 translate:
 	printf '$(BLUE)récupération des fichers de traduction$(WHITE)\n' 
-	python manage.py makemessages --all 
+	python manage.py makemessages --verbosity=2 --all 
 	printf '$(BLUE)compilation des fichiers de traduction$(WHITE)\n' 
 	python manage.py compilemessages
 
@@ -67,11 +68,19 @@ test:
 install:
 	printf '$(BLUE)installation du fichier requirements.txt$(WHITE)\n'
 	pip install -r requirements.txt
+	
+uninstall:
+	printf '$(BLUE)desinstallation du fichier requirements.txt$(WHITE)\n'
+	pip uninstall -r requirements.txt
 
-launchserv: install static translate migrate syncdb validate test
-	clear
+reinstall: uninstall install
+
+launchserv: install static translate migrate validate test
 	printf '$(BLUE)lancement du serveur$(WHITE)\n' 
 	python manage.py runserver --verbosity=3 0.0.0.0:8000
 
-
-
+configure: 
+	printf '$(BLUE)configuration du projet pour le nom $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
+	find . -name "*.py" -exec sed -i 's/django_struct/$(filter-out $@,$(MAKECMDGOALS))/g' {}
+	mv django_struct $(filter-out $@,$(MAKECMDGOALS)
+	launchserv

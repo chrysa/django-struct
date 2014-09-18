@@ -1,2 +1,4 @@
 Django==1.7
 django-debug-toolbar
+django-documentation
+sphinx

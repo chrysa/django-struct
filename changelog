@@ -1,0 +1,20 @@
+[version majeur].[version mineure].[correctif de bug critique].[correctif de bug mineure].[initiale de la branche]
+
+code:
+    a -> ajout
+    c -> correctif
+    d -> suppression
+    i -> travail en cours
+
+1.1.1.0.w
+    a - ajout de la branche de travail
+    a - prise en charge de la documentation (https://github.com/Narsil/django-documentation)
+    a - ajout de la regle docs dans le makefile
+    c - remplacement du nom de l'ancien projet restant dans certains fichiers par django_struct 
+    d - supppression de la regles syncdb du makefile car deprecated en 1.7
+    i - prise en cahrge de la documentation django-sphinxdoc 1.3.0
+
+1.0.0.0.w
+    a - création de la structure de base
+    a - integration de django-debug-toolbar
+    a - création des fonction sxtend_to_front et extend_to_admin

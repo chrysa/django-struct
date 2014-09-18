@@ -1,0 +1,7 @@
+ajouter une règle d'ajout de langue dans le makefile
+revoir la regle d'ajout du nom de module
+faire des customs tags pour include et extend suivant si c'est front ou admin
+faire un mode maintenance
+catcher les erreurs HTTP
+faire un système de logs
+faire un système d'ecriture de test pour eviter les prints dans le code
