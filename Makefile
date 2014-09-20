@@ -14,8 +14,10 @@ RED = \033[31m
 WHITE = \033[00m
 YELLOW = \033[33m
 
+
 .SILENT:
-	
+
+
 help:
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'module' 'module [nom du/des module/modules]'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'remove' 'remove [nom du/des module/modules]'
@@ -93,10 +95,11 @@ configure:
 	printf '$(BLUE)configuration du projet pour le nom $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
 	find . -name "*.py" -exec sed -i 's/django_struct/$(filter-out $@,$(MAKECMDGOALS))/g' {}
 	mv django_struct $(filter-out $@,$(MAKECMDGOALS)
-	help
+	launchserv
 
 push: clean static translate
 	printf '$(BLUE)commit avec le message $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
+	git add .
 	git commit -a -m \"$(wordlist 1,$(PREPRELAST_ARG),$(filter-out $@,$(MAKECMDGOALS)))\"
 	printf '$(BLUE)push$(WHITE)\n'
 	git push $(word $(PRELAST_ARG), $(filter-out $@,$(MAKECMDGOALS))) $(lastword $(filter-out $@,$(MAKECMDGOALS)))
