@@ -15,8 +15,6 @@ WHITE = \033[00m
 YELLOW = \033[33m
 
 .DEFAULT:
-	printf '%s\n' "je ne sais pas faire $< tapes "make help" pour connaitre les commandes valides"
-	make help
 
 .SILENT:
 
@@ -97,7 +95,7 @@ configure:
 	printf '$(BLUE)configuration du projet pour le nom $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
 	find . -name "*.py" -exec sed -i 's/django_struct/$(filter-out $@,$(MAKECMDGOALS))/g' {}
 	mv django_struct $(filter-out $@,$(MAKECMDGOALS)
-	launchserv
+	help
 
 push: clean static translate
 	printf '$(BLUE)commit avec le message $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
