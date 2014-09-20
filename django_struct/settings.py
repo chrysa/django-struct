@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application perso
-APPS_PERSO = ('polls', )
+APPS_PERSO = ('polls',  'core', )
 
 # Application definition
 INSTALLED_APPS = (
@@ -40,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'documentation',
 )
 
 INSTALLED_APPS += APPS_PERSO

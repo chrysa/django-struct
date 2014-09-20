@@ -1,7 +1,12 @@
+gérer la doc    
+créer une règle de reset de DB
 ajouter une règle d'ajout de langue dans le makefile
 revoir la regle d'ajout du nom de module
-faire des customs tags pour include et extend suivant si c'est front ou admin
-faire un mode maintenance
+decouper en sous makefile
+gérer heroku
+
 catcher les erreurs HTTP
+faire un mode maintenance
 faire un système de logs
 faire un système d'ecriture de test pour eviter les prints dans le code
+faire des customs tags pour include et extend suivant si c'est front ou admin
