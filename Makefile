@@ -96,13 +96,12 @@ configure:
 	mv django_struct $(filter-out $@,$(MAKECMDGOALS)
 	launchserv
 
-#push: clean static translate
-push:
-	printf '$(BLUE)git status$(WHITE)\n'
-	git status
-	printf '$(BLUE)prise en compte des modification$(WHITE)\n'
-	git ls-files -d -m -o -z | xargs -0 git update-index --add --remove
+push: clean static translate
+	# printf '$(BLUE)git status$(WHITE)\n'
+	# git status
+	# printf '$(BLUE)prise en compte des modification$(WHITE)\n'
+	# git ls-files -d -m -o -z | xargs -0 git update-index --add --remove
 	printf '$(BLUE)commit avec le message $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
-	git commit -m \"$(wordlist 1,$(PREPRELAST_ARG),$(filter-out $@,$(MAKECMDGOALS)))\"
+	git commit -a -m \"$(wordlist 1,$(PREPRELAST_ARG),$(filter-out $@,$(MAKECMDGOALS)))\"
 	printf '$(BLUE)push$(WHITE)\n'
 	git push $(word $(PRELAST_ARG), $(filter-out $@,$(MAKECMDGOALS))) $(lastword $(filter-out $@,$(MAKECMDGOALS)))

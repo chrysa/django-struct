@@ -2,10 +2,16 @@
 
 code:
     a -> ajout
+    b -> bug connus
     c -> correctif
     d -> suppression
-    i -> travail en cours
+    i -> information
     m -> modification
+    p -> travail en cours
+
+1.1.1.1.a
+    i - passage en version stable
+    m - modification de la regle push pour qu'elle nettoye le repos compile les trads et collect les statics avant de pusher
 
 1.1.1.1.w
     a - ajout de la fonction extend_errors
