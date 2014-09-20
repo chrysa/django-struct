@@ -14,6 +14,9 @@ RED = \033[31m
 WHITE = \033[00m
 YELLOW = \033[33m
 
+.DEFAULT:
+	printf '%s\n' "je ne sais pas faire $< tapes "make help" pour connaitre les commandes valides"
+	make help
 
 .SILENT:
 
