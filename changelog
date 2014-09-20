@@ -1,0 +1,38 @@
+[version majeur].[version mineure].[correctif de bug critique].[correctif de bug mineure].[initiale de la branche]
+
+code:
+    a -> ajout
+    b -> bug connus
+    c -> correctif
+    d -> suppression
+    i -> information
+    m -> modification
+    p -> travail en cours
+
+1.1.1.1.m
+    c - correctif du nom de version
+    c - correctif de fichiers oubliés
+
+1.1.1.1.m
+    i - passage en version stable
+    m - modification de la regle push pour qu'elle nettoye le repos compile les trads et collect les statics avant de pusher
+
+1.1.1.1.w
+    a - ajout de la fonction extend_errors
+    a - ajout du dossier errors dans les templates
+    a - ajout de la règle clean dans le makefile
+    a - ajout de la regle de push sur le github
+    m - modification du launchserv pour prendre en compte le port de lancement
+    m - modification de la regle reinstall
+
+1.1.1.0.w
+    a - ajout de la branche de travail
+    a - prise en charge de la documentation (https://github.com/Narsil/django-documentation)
+    a - ajout de la regle docs dans le makefile
+    c - remplacement du nom de l'ancien projet restant dans certains fichiers par django_struct 
+    d - supppression de la regles syncdb du makefile car deprecated en 1.7
+
+1.0.0.0.w
+    a - création de la structure de base
+    a - integration de django-debug-toolbar
+    a - création des fonction sxtend_to_front et extend_to_admin

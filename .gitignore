@@ -1,0 +1,7 @@
+*~
+*.orig
+*.swp
+*.pyc
+*.sqlite3
+.DS_Store
+.coverage

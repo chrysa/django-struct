@@ -14,10 +14,8 @@ RED = \033[31m
 WHITE = \033[00m
 YELLOW = \033[33m
 
-.DEFAULT:
-
 .SILENT:
-
+	
 help:
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'module' 'module [nom du/des module/modules]'
 	printf '$(ORANGE)[usage]$(WHITE)%s\t\t=>\t\t%s\n' 'remove' 'remove [nom du/des module/modules]'
