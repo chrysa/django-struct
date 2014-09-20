@@ -36,7 +36,7 @@ def vote(request, question_id):
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return ft.extend_front(request, 'polls_detail.html', {
+        return ft.extend_front(request, 'polls_detail', {
             'question': p,
             'error_message': "You didn't select a choice.",
         })

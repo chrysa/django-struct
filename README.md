@@ -27,8 +27,10 @@ have fun
     install => install requirements.txt
     uninstall => uninstall requirements.txt
     reinstall => reinstall requirements.txt
-    launchserv => launchserver in level 3 of verbosity had done after install static translate migrate syncdb validate test
+    clean => delete PYC ~ .DS_STORE files
+    launchserv => launchserver in level 3 of verbosity had done after clean install static translate migrate syncdb validate test
     configure => configure django-struct with name in paramter except for APP varible in makefile
+    push => push the target branch in the repo being
 
 ## banchs
 -------------

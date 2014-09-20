@@ -1,4 +1,3 @@
-#-*- coding: utf-8 -*-
 """
 Django settings for django_struct project.
 
@@ -11,9 +10,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
-from django.utils.translation import gettext_lazy as _
-
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -34,8 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application perso
-APPS_PERSO = ('polls', )
-APPS_PERSO_LIST = list(APPS_PERSO)
+APPS_PERSO = ('polls',  'core', )
 
 # Application definition
 INSTALLED_APPS = (
@@ -86,41 +81,24 @@ USE_L10N = True
 
 USE_TZ = True
 
-LANGUAGES = (
-    ('fr', _('Français')),
-    ('en', _('Anglais')),
-)
 
-USE_I18N = True
-USE_L10N = True
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-LOCALE_PATHS = [
-    "locale",
-]
-
-LOCALE_PATHS += APPS_PERSO_LIST
-
-LOCALE_PATHS = [os.path.join(BASE_DIR, elt) for elt in LOCALE_PATHS]
-
+STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+STATIC_ROOT = BASE_DIR + '/statics/'
 
 TEMPLATE_DIRS = [
-    "templates",
+    os.path.join(BASE_DIR, 'templates'),
 ]
 
 TEMPLATE_DIRS += APPS_PERSO
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, elt) for elt in TEMPLATE_DIRS]
-
-TEMPLATE_DIRS = tuple(TEMPLATE_DIRS)
-
-print(TEMPLATE_DIRS)
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-
-STATIC_URL = '/assets/'
-STATIC_ROOT = 'statics'
-
 if DEBUG:
+    DOCUMENTATION_ACCESS_FUNCTION = lambda user: user.is_staff
+    DOCUMENTATION_ROOT = os.path.join(BASE_DIR, 'doc')
+
     INTERNAL_IPS = ('127.0.0.1', '::1')
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',

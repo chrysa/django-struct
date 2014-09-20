@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 12:27+0200\n"
+"POT-Creation-Date: 2014-09-16 14:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: django_struct/settings.py:90
-msgid "Français"
+#: django_struct/settings.py:89
+msgid "fr"
 msgstr ""
 
-#: django_struct/settings.py:91
-msgid "Anglais"
+#: django_struct/settings.py:90
+msgid "en"
 msgstr ""
