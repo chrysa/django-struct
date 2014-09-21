@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-21 17:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: django_struct/settings.py:50
+msgid "French"
+msgstr ""
+
+#: django_struct/settings.py:51
+msgid "English"
+msgstr ""
+
+#: polls/models.py:24
+msgid "recent_ublished"
+msgstr ""
+
+#: polls/templates/front/polls_detail.html:14
+#: polls/templates/front/polls_details.html:20
+#: polls/templates/front/polls_results.html:8
+msgid "vote"
+msgstr ""
+
+#: polls/templates/front/polls_results.html:12
+msgid "vote_again"
+msgstr ""
+
+#: polls/tests.py:41 polls/tests.py:55
+msgid "no_polls_available"
+msgstr ""
+
+#: polls/views.py:42
+msgid "didn_t_select_choice."
+msgstr ""

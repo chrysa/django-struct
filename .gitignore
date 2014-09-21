@@ -4,4 +4,8 @@
 *.pyc
 *.sqlite3
 .DS_Store
+<<<<<<< HEAD
+=======
+docs/_build/
+>>>>>>> 6aa8e985d90fbb2fdb822ace25dcd20da6b2ae3e
 .coverage

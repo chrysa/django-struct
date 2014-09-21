@@ -1,0 +1,2 @@
+active maintenance mode ?
+    set MAINTENANCE variable to True in settings.py

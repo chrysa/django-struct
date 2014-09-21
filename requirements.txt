@@ -1,2 +1,5 @@
 Django==1.7
 django-debug-toolbar
+djangorestframework
+markdown
+django-filter

@@ -10,14 +10,10 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ncf-unmyer8xllijzt&#6n=r(nta5%v=qp1+$$y_bfm9x_k12@'
+MAINTENANCE = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,10 +24,29 @@ DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
 
 ALLOWED_HOSTS = []
 
+# Internationalization
+# https://docs.djangoproject.com/en/1.7/topics/i18n/
+
+LANGUAGE_CODE = 'fr-FR'
+
+TIME_ZONE = 'Europe/Paris'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+LANGUAGES = (
+    ('fr', _('French')),
+    ('en', _('English')),
+)
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'ncf-unmyer8xllijzt&#6n=r(nta5%v=qp1+$$y_bfm9x_k12@'
 
 # Application perso
-APPS_PERSO = ('polls',  'core', )
-
+APPS_PERSO = ('core', )
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -40,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 )
 
 INSTALLED_APPS += APPS_PERSO
@@ -68,19 +84,9 @@ DATABASES = {
     }
 }
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
+LOCALE_PATHS = ()
 
-LANGUAGE_CODE = 'fr-FR'
-
-TIME_ZONE = 'Europe/Paris'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
+LOCALE_PATHS += APPS_PERSO
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -96,9 +102,6 @@ TEMPLATE_DIRS = [
 TEMPLATE_DIRS += APPS_PERSO
 
 if DEBUG:
-    DOCUMENTATION_ACCESS_FUNCTION = lambda user: user.is_staff
-    DOCUMENTATION_ROOT = os.path.join(BASE_DIR, 'doc')
-
     INTERNAL_IPS = ('127.0.0.1', '::1')
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',

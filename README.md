@@ -22,7 +22,7 @@ have fun
     migrate => migrate database after changing
     validate => valide databases
     static => collect alls statics files for the app
-    translate => make trabslation files of the apps
+    translate => make trabslation files of the apps with langue code in paramater
     test => launch all the unit tests
     install => install requirements.txt
     uninstall => uninstall requirements.txt
@@ -35,4 +35,4 @@ have fun
 ## banchs
 -------------
     master -> stable
-    work -> in work
+    work -> in progresss

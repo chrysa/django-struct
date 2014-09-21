@@ -9,9 +9,19 @@ code:
     m -> modification
     p -> travail en cours
 
-1.1.1.1.m
-    c - correctif du nom de version
-    c - correctif de fichiers oubliés
+2.0.0.1.m
+    c - regle remove
+    
+    
+2.1.0.0.w
+    a - ajout d'un système de trace basique prenant en compte le mode debug
+    a - ajout d'un mode maintenance hyper basique
+    c - correctif de la regle de taduction
+    i - les test unitaires ne passes qu'en MAINTENANCE=False
+    m - modification de la regle de traduction
+
+2.0.0.0.w
+    i - passage en 2.0.0.0w pour prise en charge de django-rest-framework entre autre
 
 1.1.1.1.m
     i - passage en version stable
