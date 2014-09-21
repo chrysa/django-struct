@@ -100,6 +100,8 @@ configure:
 	launchserv
 
 push: clean static
+	printf '$(BLUE)compilation des fichiers de traduction$(WHITE)\n' 
+	python manage.py compilemessages
 	printf '$(BLUE)commit avec le message $(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n'
 	git add .
 	git commit -a -m \"$(wordlist 1,$(PREPRELAST_ARG),$(filter-out $@,$(MAKECMDGOALS)))\"
