@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 
 class Question(models.Model):
@@ -20,7 +21,7 @@ class Question(models.Model):
 
     was_published_recently.admin_order_field = 'pub_date'
     was_published_recently.boolean = True
-    was_published_recently.short_description = 'Published recently?'
+    was_published_recently.short_description = _('recent_ublished')
 
 
 class Choice(models.Model):

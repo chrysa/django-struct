@@ -1,11 +1,12 @@
-from django.utils import timezone
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from polls.models import Choice, Question
 from core import fct_template as ft
+from polls.models import Choice, Question
 
 
 class IndexView(generic.ListView):
@@ -38,7 +39,7 @@ def vote(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         return ft.extend_front(request, 'polls_detail', {
             'question': p,
-            'error_message': "You didn't select a choice.",
+            'error_message': _("didn_t_select_choice."),
         })
     else:
         selected_choice.votes += 1
