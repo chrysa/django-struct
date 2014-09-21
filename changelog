@@ -9,6 +9,10 @@ code:
     m -> modification
     p -> travail en cours
 
+2.0.0.1.m
+    c - regle remove
+    
+    
 2.1.0.0.w
     a - ajout d'un système de trace basique prenant en compte le mode debug
     a - ajout d'un mode maintenance hyper basique
@@ -19,7 +23,7 @@ code:
 2.0.0.0.w
     i - passage en 2.0.0.0w pour prise en charge de django-rest-framework entre autre
 
-1.1.1.1.a
+1.1.1.1.m
     i - passage en version stable
     m - modification de la regle push pour qu'elle nettoye le repos compile les trads et collect les statics avant de pusher
 

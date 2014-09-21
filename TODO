@@ -7,5 +7,6 @@ decouper en sous makefile
 faire des customs tags pour include et extend suivant si c'est front ou admin
 faire un decorateur custom pour tester si on est en mode debug
 gérer la doc
+modifier le django-struct avec les règles du makefile
 prendre en charge les venvs
 revoir la regle d'ajout du nom de module

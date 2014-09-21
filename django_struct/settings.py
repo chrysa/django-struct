@@ -14,11 +14,6 @@ from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 MAINTENANCE = False
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ncf-unmyer8xllijzt&#6n=r(nta5%v=qp1+$$y_bfm9x_k12@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,10 +23,6 @@ TEMPLATE_DEBUG = True
 DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
 
 ALLOWED_HOSTS = []
-
-
-# Application perso
-APPS_PERSO = ('polls',  'core', )
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -51,6 +42,11 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'ncf-unmyer8xllijzt&#6n=r(nta5%v=qp1+$$y_bfm9x_k12@'
+
+# Application perso
+APPS_PERSO = ('core', )
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -59,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 )
 
 INSTALLED_APPS += APPS_PERSO

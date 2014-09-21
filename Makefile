@@ -38,7 +38,7 @@ module:
 	$(foreach mod, $(filter-out $@,$(MAKECMDGOALS)), grep 'APPS_PERSO = \(.*\)' $(SETTINGS) >> tmp && sed -i 's/APPS_PERSO = \(.*\)/\1/g' tmp >> tmp && sed 's/[()]//g'  tmp >> tmp2 && echo \'$(mod)\', >> tmp2 && cat tmp2 | tr "\n" " " > tmp3 && sed -i "s/APPS_PERSO = \(.*\)/APPS_PERSO = \(`cat tmp3`\)/g"  $(SETTINGS) && rm tmp tmp2 tmp3)
 	
 remove:
-	printf '$(BLUE)suppression du/des module(s) $(CYAN)$(filter-out $@,$(MAKECMDGOALS)$(WHITE)\n' 
+	printf '$(BLUE)suppression du/des module(s) $(CYAN)$(filter-out $@,$(MAKECMDGOALS))$(WHITE)\n' 
 	$(foreach mod, $(filter-out $@,$(MAKECMDGOALS)), rm -rf $(mod))
 	$(foreach mod, $(filter-out $@,$(MAKECMDGOALS)), sed -i "s/'$(mod)',//" $(SETTINGS))
 
